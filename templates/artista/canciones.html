@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block contenido %}
+    <h1>Todas las Canciones</h1>
+    
+<table>
+    <tr>
+        <th>imagne</th>
+        <th>cancion</th>
+        <th>artista</th>
+        <th>acciones</th>
+    </tr>
+    
+    {% for l in lista %}
+    <tr>
+        <td>{{ l.foto }}</td>
+        <td>{{ l.nombre }}</td>
+        <td>{{ l.artista.username }}</td>
+        <td>{{ l.archivo }}</td>
+    </tr>    
+    
+</table>
+    {% endfor %}
+        
+{% endblock contenido %}
+    

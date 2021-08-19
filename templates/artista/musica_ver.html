@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block contenido %}
+    <h2>{{ object.nombre }}</h2>
+    <h3>{{ object.artista }}</h3>
+    <audio controls autoplay muted>
+        <source src="/media/{{ object.archivo }}" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+    
+
+    <img src="/media/{{ object.foto }}" alt="">
+
+{% endblock contenido %}
+    

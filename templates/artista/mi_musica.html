@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block contenido %}
+    <h1>Todas las Canciones</h1>
+    
+<table>
+    <thead>
+
+        <tr>
+            <th>imagne</th>
+            <th>cancion</th>
+            <th>artista</th>
+            <th>archivo</th>
+            <th>acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for l in lista %}
+        <tr>
+            <td>{{ l.foto }}</td>
+            <td>{{ l.nombre }}</td>
+            <td>{{ l.artista.username }}</td>
+            <td>{{ l.archivo }}</td>
+            <td>
+                <a href="{% url 'ver_musica' id_musica=l.id %}"> Ver Detalle </a>
+            </td>
+        </tr>    
+    </tbody>
+        
+</table>
+    {% endfor %}
+        
+{% endblock contenido %}
+    
