@@ -3,7 +3,7 @@
 
 {% block contenido %}
     <h1>Todas las Canciones</h1>
-    
+    <a href="{% url 'agregar_musica' %}">Agregar nueva musica</a>
 <table>
     <thead>
 
@@ -19,18 +19,23 @@
 
         {% for l in lista %}
         <tr>
-            <td>{{ l.foto }}</td>
+            <td><img src="/media/{{ l.foto }}" alt="" height="20px"></td>
             <td>{{ l.nombre }}</td>
             <td>{{ l.artista.username }}</td>
-            <td>{{ l.archivo }}</td>
+            <td>
+                <audio controls autoplay muted>
+                    <source src="/media/{{ l.archivo }}" type="audio/mp3">
+                  Your browser does not support the audio element.
+                </audio>
+            </td>
             <td>
                 <a href="{% url 'ver_musica' id_musica=l.id %}"> Ver Detalle </a>
             </td>
         </tr>    
+        {% endfor %}
     </tbody>
         
 </table>
-    {% endfor %}
         
 {% endblock contenido %}
     
