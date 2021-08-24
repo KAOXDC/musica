@@ -70,6 +70,27 @@ def agregar_musica_view (request):
 def mi_musica_view (request):
     usuario = User.objects.get(id = request.user.id)
     lista = Musica.objects.filter(artista = usuario)
+
+    # canciones = Musica.objects.all() # retorna una lista con todas las canciones
+
+    #artista = User.objects.get(username = 'admin') # obtiene un objeto artista
+    #canciones = Musica.objects.filter(artista = artista) # obtiene una lista de canciones por el artista 
+    
+    # obtiene una lista de canciones por el artista 'admin' y el nombre de la cancion es 'musica 1
+    # canciones = Musica.objects.filter(artista__username = 'admin' , nombre = 'musica 1' ) 
+    
+    # retornar una lista de canciones que contengan en el nombre la palabra 'ica'  
+    #canciones = Musica.objects.filter(nombre__icontains = 'ICA' ) 
+    
+    # retornar una lista de canciones que contengan en el nombre la palabra 'ica' y que el username contenga 'ADMIN'
+    # canciones = Musica.objects.filter(nombre__icontains = 'ICA', artista__username__icontains = 'ADMIN', artista__is_active__icontains=1) 
+
+    #canciones = Musica.objects.filter(nombre__startswith = 'e') # buscar una cancion que inice por 'e'
+    #canciones = Musica.objects.filter(nombre__endswith = 'e') # buscar una cancion que finalice por 'e'
+
+    # print ("xxxxxxxxxxxxxxxx")
+    # print (canciones)
+    # print ("xxxxxxxxxxxxxxxx")
     return render(request, 'artista/mi_musica.html', locals())
 
 def editar_musica_view (request):
