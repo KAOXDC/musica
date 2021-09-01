@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block contenido %}
+    <h1>Hola esta es una página de ejemplo</h1>
+    <h3>{{ msg|lower }}</h3>
+    <h3>{{ msg|upper }}</h3>
+    <h3>{{ msg|title }}</h3>
+
+    {{ canciones }}
+
+    <hr>
+    {% for cancion in canciones %}
+        <p>
+            {{ cancion.nombre }}
+            {{ cancion.artista }}
+            <img src="/media/{{ cancion.foto }}" alt="" height="50px">
+            
+            <audio controls>
+                <source src="/media/{{ cancion.archivo }}" type="audio/mp3">
+              Your browser does not support the audio element.
+            </audio>
+
+            {% for g in cancion.generos.all %}
+                {{ g }}
+            {% endfor %}
+
+        </p>
+        
+    {% endfor %}
+    <hr>
+    {{ usuario.username }} <br>
+    {{ usuario.password|truncatechars:20  }} <br>
+    {{ usuario.last_login|date:"d/M/Y"}} <br>
+
+        
+
+{% endblock contenido %}
+    

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block contenido %}
+
+    <form action="" method="POST" enctype="multipart/form-data" class="col-md-6 offset-3">
+        {% csrf_token %}
+        <hr>
+        <h2>Metodo campo por campo</h2>
+        {{ form_u.username.errors }}
+        {{ form_u.username.label }}
+        {{ form_u.username }}
+
+        {{ form_u.password_1.errors }}
+        {{ form_u.password_1.label }}
+        {{ form_u.password_1 }}
+
+        {{ form_u.password_2.errors }}
+        {{ form_u.password_2.label }}
+        {{ form_u.password_2 }}
+        <hr>
+
+        <h2>metodo por cada etiqueta</h2>
+        <label for="id_username"> {{ form_u.username.label }} </label>
+        <input type="text" name="username" required="" id="id_username" class="form-control">
+        
+        <hr>
+        
+        <h2>con el metodo construcor del ModelForm</h2>
+        {% for fields in form_u %}
+        <p>
+
+            {{ fields.errors }}
+            {{ fields.label }}
+            {{ fields }}
+        </p>
+        {% endfor %}    
+        <hr>
+        
+        <h2>Metodo facilito </h2>
+        {{ form_u.as_p }}
+        {{ form_m.as_p }}
+        <input type="submit" value="Guardar" class="btn btn-success">
+    </form>
+{% endblock contenido %}
+    

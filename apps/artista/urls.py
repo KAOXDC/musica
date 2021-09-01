@@ -16,4 +16,9 @@ urlpatterns = [
     path('ver_musica/<int:id_musica>/', ver_musica_view, name='ver_musica'),
     path('editar_musica/<int:id_musica>/', editar_musica_view, name='editar_musica'),
     path('eliminar_musica/<int:id_musica>/', eliminar_musica_view, name='eliminar_musica'),
+
+    path('dos_forms/',dos_forms_view, name='dos_forms'),
+
+
+    path('ejemplo/',ejemplo_view, name='ejemplo'),
 ]
